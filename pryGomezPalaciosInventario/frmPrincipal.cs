@@ -16,5 +16,14 @@ namespace pryGomezPalaciosInventario
         {
             InitializeComponent();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            clsConexionBD clsConexionBd = new clsConexionBD();
+            clsConexionBd.ConectarBD();
+            clsConexionBd.cargarCategorias(cboCategoria);
+        }
     }
+
+
 }

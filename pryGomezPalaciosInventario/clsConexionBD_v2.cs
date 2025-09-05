@@ -17,14 +17,14 @@ namespace pryGomezPalaciosInventario
     {
         //cadena de conexion
         //sql - string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
-        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../../Productos.accdb";
+        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Alumno\\source\\repos\\pryGomezPalaciosInventario\\pryGomezPalaciosInventario\\Base de Datos\\Productos.accdb";
         //conector
         //SqlConnection coneccionBaseDatos;
         OleDbConnection coneccionBaseDatos;
         //comando
         //SqlCommand comandoBaseDatos;
         OleDbCommand comandoBaseDatos;
-
+        OleDbDataReader lectorDataReader;
         public string nombreBaseDeDatos;
 
         public void ConectarBD()
@@ -47,5 +47,20 @@ namespace pryGomezPalaciosInventario
 
         }
 
+        public void cargarCategorias(ComboBox ListaCategoria)
+        {
+            comandoBaseDatos = new OleDbCommand();
+            comandoBaseDatos.Connection = coneccionBaseDatos;
+            comandoBaseDatos.CommandType = System.Data.CommandType.Text;
+            comandoBaseDatos.CommandText =
+                "SELECT marca_nombre FROM Productos1";
+            lectorDataReader = comandoBaseDatos.ExecuteReader();
+
+            while (lectorDataReader.Read())
+            {
+                ListaCategoria.Items.Add(lectorDataReader[0]);
+            }
+
+        }
     }
 }
