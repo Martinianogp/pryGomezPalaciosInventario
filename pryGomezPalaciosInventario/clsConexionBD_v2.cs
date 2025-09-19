@@ -17,10 +17,11 @@ namespace pryGomezPalaciosInventario
     {
         //cadena de conexion
         //sql - string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
-        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Alumno\\source\\repos\\pryGomezPalaciosInventario\\pryGomezPalaciosInventario\\Base de Datos\\Productos.accdb";
+        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + Application.StartupPath + "\\Base de Datos\\Productos.accdb";
+
         //conector
         //SqlConnection coneccionBaseDatos;
-        OleDbConnection coneccionBaseDatos;
+        public OleDbConnection coneccionBaseDatos;
         //comando
         //SqlCommand comandoBaseDatos;
         OleDbCommand comandoBaseDatos;
